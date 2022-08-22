@@ -16,13 +16,13 @@ const Articles = () => {
     return <p>Loading...</p>;
   }
   return (
-    <ul>
+    <ul className="ul--articleCardList">
       {articleList.map(article => (
         <li key={article.article_id} className="li--articalCard__articleList">
           <h4>{article.title}</h4>
-          <p>author: {article.author}</p>
-          <p>topic: {article.topic}</p>
-          <p>{article.votes} votes</p>
+          <p className="p--author__articleCard">author: {article.author}</p>
+          <p className="p--topic__articleCard">topic: {article.topic}</p>
+          <p className="p--votes__articleCard">{article.votes} votes</p>
         </li>
       ))}
     </ul>
