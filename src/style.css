@@ -1,0 +1,9 @@
+.li--articalCard__articleList {
+  border: 2px solid;
+  background-color: antiquewhite;
+}
+
+body {
+  text-align: center;
+  background-color: antiquewhite;
+}
