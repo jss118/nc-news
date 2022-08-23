@@ -15,3 +15,9 @@ export const fetchTopics = () => {
     .get("https://nc-articles-app.herokuapp.com/api/topics")
     .then(res => res.data);
 };
+
+export const fetchSingleArticle = article_id => {
+  return axios
+    .get(`https://nc-articles-app.herokuapp.com/api/articles/${article_id}`)
+    .then(res => res.data);
+};
