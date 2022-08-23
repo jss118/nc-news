@@ -41,6 +41,10 @@
   padding: 20px;
 }
 
+.h5--author__article {
+  padding-left: 200px;
+}
+
 body {
   text-align: center;
 }

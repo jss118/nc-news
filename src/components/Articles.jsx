@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useParams, Link } from "react-router-dom";
 import { fetchArticles } from "../utils/api";
 
 const Articles = () => {
@@ -20,12 +20,15 @@ const Articles = () => {
   return (
     <ul className="ul--articleCardList">
       {articleList.map(article => (
-        <li key={article.article_id} className="li--articalCard__articleList">
-          <h4>{article.title}</h4>
-          <p>author: {article.author}</p>
-          <p>topic: {article.topic}</p>
-          <p>{article.votes} votes</p>
-        </li>
+        <Link to={`/articles/${article.article_id}`} key={article.article_id}>
+          <li className="li--articalCard__articleList">
+            <h4>{article.title}</h4>
+            <p>author: {article.author}</p>
+            <p>topic: {article.topic}</p>
+            <p>{article.votes} votes</p>
+            <p>comments({article.comment_count})</p>
+          </li>
+        </Link>
       ))}
     </ul>
   );
