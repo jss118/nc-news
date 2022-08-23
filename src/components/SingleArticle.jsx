@@ -17,7 +17,7 @@ const SingleArticle = () => {
   if (isLoading) {
     return <p>Loading...</p>;
   }
-  console.log(article);
+
   return (
     <>
       <article>
