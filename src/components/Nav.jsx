@@ -7,6 +7,9 @@ const Nav = () => {
       <li className="li--navList">
         <Link to="/">Articles</Link>
       </li>
+      <li className="li--navList">
+        <Link to="/topics">Topics</Link>
+      </li>
     </ul>
   );
 };

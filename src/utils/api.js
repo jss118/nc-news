@@ -1,7 +1,17 @@
 const axios = require("axios");
 
-export const fetchArticles = () => {
+export const fetchArticles = topic_slug => {
   return axios
-    .get("https://nc-articles-app.herokuapp.com/api/articles")
+    .get("https://nc-articles-app.herokuapp.com/api/articles", {
+      params: {
+        topic: topic_slug,
+      },
+    })
+    .then(res => res.data);
+};
+
+export const fetchTopics = () => {
+  return axios
+    .get("https://nc-articles-app.herokuapp.com/api/topics")
     .then(res => res.data);
 };
