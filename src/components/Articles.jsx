@@ -26,7 +26,7 @@ const Articles = () => {
             <p>author: {article.author}</p>
             <p>topic: {article.topic}</p>
             <p>{article.votes} votes</p>
-            <p>comments({article.comment_count})</p>
+            <p>{article.comment_count} comments</p>
           </li>
         </Link>
       ))}

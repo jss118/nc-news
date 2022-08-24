@@ -21,3 +21,13 @@ export const fetchSingleArticle = article_id => {
     .get(`https://nc-articles-app.herokuapp.com/api/articles/${article_id}`)
     .then(res => res.data);
 };
+
+export const updateVote = (article_id, inc_votes) => {
+  return axios
+    .patch(`https://nc-articles-app.herokuapp.com/api/articles/${article_id}`, {
+      inc_votes,
+    })
+    .then(updateArticle => {
+      return updateArticle.data;
+    });
+};
