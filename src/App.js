@@ -4,6 +4,7 @@ import Nav from "./components/Nav";
 import Articles from "./components/Articles";
 import Topics from "./components/Topics";
 import SingleArticle from "./components/SingleArticle";
+import Comments from "./components/Comments";
 import "./style.css";
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
           <Route path="/topics" element={<Topics />} />
           <Route path="/topics/:topic_slug" element={<Articles />} />
           <Route path="/articles/:article_id" element={<SingleArticle />} />
+          <Route path="/articles/:article_id/comments" element={<Comments />} />
         </Routes>
       </div>
     </BrowserRouter>

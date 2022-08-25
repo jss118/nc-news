@@ -31,3 +31,11 @@ export const updateVote = (article_id, inc_votes) => {
       return updateArticle.data;
     });
 };
+
+export const fetchArticleComments = article_id => {
+  return axios
+    .get(
+      `https://nc-articles-app.herokuapp.com/api/articles/${article_id}/comments`
+    )
+    .then(comments => comments.data);
+};

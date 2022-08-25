@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { fetchSingleArticle } from "../utils/api";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { updateVote } from "../utils/api";
 
 const SingleArticle = () => {
@@ -43,12 +43,15 @@ const SingleArticle = () => {
         <p>{article.body}</p>
         <p>created on {article.created_at}</p>
       </article>
-      <section>
+      <section className="section--votes__section">
         <p>Votes: {article.votes + votes}</p>
         <button onClick={() => incVotes(1)}>Upvote</button>
         <button onClick={() => incVotes(-1)}>Downvote</button>
         {err ? <p>{err}</p> : null}
       </section>
+      <Link className="Link--comments" to={`/articles/${article_id}/comments`}>
+        Comments
+      </Link>
     </>
   );
 };
