@@ -18,7 +18,6 @@
 }
 
 .ul--navList {
-  border: 2px solid;
   padding-left: 0px;
 }
 
@@ -71,6 +70,12 @@ body {
   padding-right: 75%;
 }
 
+.form--comment__post {
+  display: grid;
+  grid-template-rows: 2fr 1fr;
+  justify-items: stretch;
+}
+
 @media only screen and (max-width: 1199px) and (min-width: 600px) {
   .ul--articleCardList {
     display: grid;
@@ -87,6 +92,12 @@ body {
   .section--votes__section {
     padding-left: 50%;
   }
+  .form--comment__post {
+    display: grid;
+    grid-template-rows: 2fr 0fr 1fr;
+    grid-template-columns: 2fr 0fr 1fr;
+    justify-items: stretch;
+  }
 }
 
 @media only screen and (min-width: 1200px) {
@@ -100,6 +111,12 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    justify-items: stretch;
+  }
+  .form--comment__post {
+    display: grid;
+    grid-template-rows: 2fr 0fr 1fr;
+    grid-template-columns: 1fr 0fr 1fr;
     justify-items: stretch;
   }
 }

@@ -39,3 +39,14 @@ export const fetchArticleComments = article_id => {
     )
     .then(comments => comments.data);
 };
+
+export const updateComments = (article_id, newComment) => {
+  return axios
+    .post(
+      `https://nc-articles-app.herokuapp.com/api/articles/${article_id}/comments`,
+      newComment
+    )
+    .then(postedComment => {
+      return postedComment.data;
+    });
+};
