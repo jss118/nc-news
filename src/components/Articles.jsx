@@ -16,9 +16,7 @@ const Articles = () => {
         setArticleList(articles);
         setIsLoading(false);
       })
-      .catch(err => {
-        console.log(err);
-      });
+      .catch(err => err);
   }, [topic_slug, sort, order]);
 
   if (isLoading) {
