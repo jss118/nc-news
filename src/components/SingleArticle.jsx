@@ -50,7 +50,7 @@ const SingleArticle = () => {
         {err ? <p>{err}</p> : null}
       </section>
       <Link className="Link--comments" to={`/articles/${article_id}/comments`}>
-        Comments
+        Comments({article.comment_count})
       </Link>
     </>
   );

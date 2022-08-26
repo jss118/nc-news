@@ -1,10 +1,12 @@
 const axios = require("axios");
 
-export const fetchArticles = topic_slug => {
+export const fetchArticles = (topic_slug, sort, order) => {
   return axios
     .get("https://nc-articles-app.herokuapp.com/api/articles", {
       params: {
         topic: topic_slug,
+        sort_by: sort,
+        order: order,
       },
     })
     .then(res => res.data);
