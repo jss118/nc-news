@@ -74,6 +74,7 @@ const Comments = () => {
             <li key={comment.comment_id} className="li--individual_comment">
               {comment.author === "grumpy19" ? (
                 <DeleteComment
+                  article_id={article_id}
                   comment_id={comment.comment_id}
                   setDeleted={setDeleted}
                   setComments={setComments}
