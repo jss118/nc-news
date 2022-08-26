@@ -11,10 +11,12 @@ const Articles = () => {
   const { topic_slug } = useParams();
 
   useEffect(() => {
-    fetchArticles(topic_slug, sort, order).then(articles => {
-      setArticleList(articles);
-      setIsLoading(false);
-    });
+    fetchArticles(topic_slug, sort, order)
+      .then(articles => {
+        setArticleList(articles);
+        setIsLoading(false);
+      })
+      .catch(err => err);
   }, [topic_slug, sort, order]);
 
   if (isLoading) {

@@ -76,6 +76,13 @@ body {
   justify-items: stretch;
 }
 
+.button--delete__comment {
+  border-radius: 15%;
+  margin-left: 75%;
+  margin-top: 5%;
+  background-color: transparent;
+}
+
 @media only screen and (max-width: 1199px) and (min-width: 600px) {
   .ul--articleCardList {
     display: grid;

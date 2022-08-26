@@ -2,12 +2,14 @@ import { useState, useEffect } from "react";
 import { fetchArticleComments } from "../utils/api";
 import { Link, useParams } from "react-router-dom";
 import { updateComments } from "../utils/api";
+import DeleteComment from "./DeleteComment";
 
 const Comments = () => {
   const [comments, setComments] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [newComment, setNewComment] = useState("");
   const [posted, setPosted] = useState(false);
+  const [deleted, setDeleted] = useState(false);
   const { article_id } = useParams();
 
   useEffect(() => {
@@ -17,7 +19,7 @@ const Comments = () => {
         setIsLoading(false);
       })
       .catch(err => err);
-  }, [article_id]);
+  }, [article_id, comments]);
 
   if (isLoading) {
     return <p>Loading...</p>;
@@ -70,11 +72,20 @@ const Comments = () => {
         <ul className="ul--comment__list">
           {comments.map(comment => (
             <li key={comment.comment_id} className="li--individual_comment">
+              {comment.author === "grumpy19" ? (
+                <DeleteComment
+                  article_id={article_id}
+                  comment_id={comment.comment_id}
+                  setDeleted={setDeleted}
+                  setComments={setComments}
+                />
+              ) : null}
               <h6 className="h6--comment__author">{comment.author}</h6>
               <p>{comment.body}</p>
               <p>{comment.created_at}</p>
             </li>
           ))}
+          {deleted ? <p>comment deleted.</p> : null}
         </ul>
       </div>
     </section>
