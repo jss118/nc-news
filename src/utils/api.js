@@ -52,3 +52,9 @@ export const updateComments = (article_id, newComment) => {
       return postedComment.data;
     });
 };
+
+export const deleteComment = comment_id => {
+  return axios.delete(
+    `https://nc-articles-app.herokuapp.com/api/comments/${comment_id}`
+  );
+};
