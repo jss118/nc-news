@@ -14,7 +14,7 @@ const DeleteComment = ({ comment_id, setDeleted, setComments, article_id }) => {
       onClick={handleClick}
       className="button--delete__comment"
     >
-      X
+      &#10005;
     </button>
   );
 };
