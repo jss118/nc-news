@@ -50,9 +50,7 @@ const Comments = () => {
   };
 
   return (
-    <section className="section--comments__section">
-      <h3>Comments</h3>
-      <Link to={`/articles/${article_id}`}>back to article</Link>
+    <section className="commentsContainer">
       <form className="form--comment__post" onSubmit={handleSubmit}>
         <input
           onChange={handleChange}
