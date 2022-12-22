@@ -2,12 +2,14 @@ import { useState, useEffect } from "react";
 import { fetchSingleArticle } from "../utils/api";
 import { useParams, Link } from "react-router-dom";
 import { updateVote } from "../utils/api";
+import Comments from "./Comments";
 
 const SingleArticle = () => {
   const [article, setArticle] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [votes, setVotes] = useState(0);
   const [err, setErr] = useState(null);
+  const [commentsVisible, setCommentsVisible] = useState(false);
   const { article_id } = useParams();
 
   useEffect(() => {
@@ -35,23 +37,42 @@ const SingleArticle = () => {
       });
   };
 
+  const commentsToggle = () => {
+    setCommentsVisible(boolean => !boolean);
+  };
+
   return (
     <>
-      <article>
-        <h2>{article.title}</h2>
+      <div className="div--singleArticle">
+        <h2 className="h2--singleArticle">{article.title}</h2>
         <h5 className="h5--author__article">by {article.author}</h5>
-        <p>{article.body}</p>
-        <p>created on {article.created_at}</p>
-      </article>
-      <section className="section--votes__section">
-        <p>Votes: {article.votes + votes}</p>
-        <button onClick={() => incVotes(1)}>Upvote</button>
-        <button onClick={() => incVotes(-1)}>Downvote</button>
-        {err ? <p>{err}</p> : null}
-      </section>
-      <Link className="Link--comments" to={`/articles/${article_id}/comments`}>
-        Comments({article.comment_count})
-      </Link>
+        <p className="date--singleArticle">created on {article.created_at}</p>
+
+        <p className="article--singleArticle">{article.body}</p>
+
+        <section className="section--votes__section">
+          <p>Votes: {article.votes + votes}</p>
+          <button className="btn--upvote voteBtns" onClick={() => incVotes(1)}>
+            Upvote
+          </button>
+          <button
+            className="btn--downvote voteBtns"
+            onClick={() => incVotes(-1)}
+          >
+            Downvote
+          </button>
+          {err ? <p>{err}</p> : null}
+        </section>
+        <button
+          className="btn--comments__singleArticle"
+          onClick={commentsToggle}
+        >
+          {commentsVisible ? "Hide" : "Show"} comments ({article.comment_count})
+        </button>
+        <div className="commentsContainer">
+          {commentsVisible ? <Comments /> : null}
+        </div>
+      </div>
     </>
   );
 };
