@@ -18,10 +18,10 @@ const Topics = () => {
   }
 
   return (
-    <ul className="ul--topicsList">
+    <ul className="ul--articleCardList">
       {topicsList.map(topic => (
         <Link to={`/topics/${topic.slug}`} key={topic.slug}>
-          <li className="li--topicsList">
+          <li className="li--articalCard__articleList">
             <h3 className="h3--li--topicsList">{topic.slug}</h3>
           </li>
         </Link>

@@ -24,7 +24,7 @@ const Articles = () => {
   }
 
   return (
-    <section>
+    <section className="section__articles">
       <SortBy setSort={setSort} setOrder={setOrder} />
       <ul className="ul--articleCardList">
         {articleList.map(article => (

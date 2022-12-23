@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { fetchArticleComments } from "../utils/api";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { updateComments } from "../utils/api";
 import DeleteComment from "./DeleteComment";
 
@@ -8,8 +8,6 @@ const Comments = () => {
   const [comments, setComments] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [newComment, setNewComment] = useState("");
-  const [posted, setPosted] = useState(false);
-  const [deleted, setDeleted] = useState(false);
   const { article_id } = useParams();
 
   useEffect(() => {
@@ -44,7 +42,7 @@ const Comments = () => {
         });
         setNewComment("");
         setIsLoading(false);
-        setPosted(true);
+        alert("Comment posted");
       })
       .catch(err => err);
   };
@@ -67,7 +65,6 @@ const Comments = () => {
         <button className="formBtn--comment__post" type="submit">
           Post
         </button>
-        {posted ? <p>posted!</p> : null}
       </form>
       <div className="div--comment__container">
         <ul className="ul--comment__list">
@@ -77,7 +74,6 @@ const Comments = () => {
                 <DeleteComment
                   article_id={article_id}
                   comment_id={comment.comment_id}
-                  setDeleted={setDeleted}
                   setComments={setComments}
                 />
               ) : null}
@@ -86,7 +82,6 @@ const Comments = () => {
               <p>{comment.created_at}</p>
             </li>
           ))}
-          {deleted ? <p>comment deleted.</p> : null}
         </ul>
       </div>
     </section>

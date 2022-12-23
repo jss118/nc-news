@@ -6,6 +6,7 @@ const DeleteComment = ({ comment_id, setDeleted, setComments, article_id }) => {
       setDeleted(true);
       fetchArticleComments(article_id).then(comments => setComments(comments));
     });
+    alert("Comment deleted");
   };
 
   return (
