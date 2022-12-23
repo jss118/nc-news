@@ -60,10 +60,13 @@ const Comments = () => {
           cols="40"
           placeholder="type comment here..."
           value={newComment}
+          className="formInput--comment__post"
           required
         ></input>
         <label htmlFor="commentToPost" />
-        <button type="submit">Post</button>
+        <button className="formBtn--comment__post" type="submit">
+          Post
+        </button>
         {posted ? <p>posted!</p> : null}
       </form>
       <div className="div--comment__container">

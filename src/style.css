@@ -88,7 +88,6 @@ body {
 .div--singleArticle {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 5fr;
   justify-items: center;
   align-items: center;
   justify-content: center;
@@ -183,7 +182,6 @@ body {
   grid-column: 1/4;
   height: 100%;
   width: 100%;
-
   align-self: baseline;
 }
 
@@ -203,15 +201,16 @@ a {
 
 .ul--comment__list {
   padding-left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .li--individual_comment {
   border: 1px solid;
   background-color: white;
   list-style: none;
-  margin-left: 10%;
-  margin-top: 2%;
-  align-items: center;
+  margin-top: 1%;
   width: 500px;
   border-radius: 4px;
   padding: 4%;
@@ -222,16 +221,75 @@ a {
 }
 
 .form--comment__post {
-  display: grid;
-  grid-template-rows: 2fr 1fr;
-  justify-items: stretch;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.formInput--comment__post {
+  margin-right: 4%;
+  height: 30px;
+  width: 450px;
+  border-radius: 4px;
+  border: 2px solid black;
+  padding-left: 10px;
+}
+
+.formBtn--comment__post {
+  border: 2px solid black;
+  width: 70px;
+  border-radius: 4px;
+  background-color: transparent;
+  font-weight: bold;
+}
+
+.formBtn--comment__post:hover {
+  background-color: rgb(139, 253, 215);
+  cursor: pointer;
+}
+
+.formBtn--comment__post:active {
+  opacity: 0.6;
 }
 
 .button--delete__comment {
+  border-style: none;
+  font-size: 20px;
   border-radius: 15%;
-  margin-left: 75%;
-  margin-top: 5%;
+  margin: 0% 0% 0% 90%;
   background-color: transparent;
+  opacity: 0.4;
+}
+.button--delete__comment:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.form--sortBy {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-left: 24%;
+}
+
+.form--select {
+  height: 25px;
+  width: 75px;
+  border-radius: 4px;
+  background-color: transparent;
+  border: 1px solid black;
+}
+
+.form--checkBox {
+  margin-left: 8px;
+  color: transparent;
+  background-color: transparent;
+  background: transparent;
+}
+
+.form--checkBoxLabel {
+  display: flex;
+  align-items: center;
 }
 
 @media only screen and (max-width: 1199px) and (min-width: 600px) {
@@ -250,12 +308,6 @@ a {
   .section--votes__section {
     padding-left: 50%;
   }
-  .form--comment__post {
-    display: grid;
-    grid-template-rows: 2fr 0fr 1fr;
-    grid-template-columns: 2fr 0fr 1fr;
-    justify-items: stretch;
-  }
 }
 
 @media only screen and (min-width: 1200px) {
@@ -270,11 +322,5 @@ a {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr 1fr;
     justify-items: center;
-  }
-  .form--comment__post {
-    display: grid;
-    grid-template-rows: 2fr 0fr 1fr;
-    grid-template-columns: 1fr 0fr 1fr;
-    justify-items: stretch;
   }
 }

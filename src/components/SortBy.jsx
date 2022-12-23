@@ -12,9 +12,9 @@ const SortBy = ({ setSort, setOrder }) => {
   };
 
   return (
-    <form>
+    <form className="form--sortBy">
       <label>
-        <select onChange={handleSortChange}>
+        <select className="form--select" onChange={handleSortChange}>
           <option value="" disabled>
             --sort by--
           </option>
@@ -23,8 +23,12 @@ const SortBy = ({ setSort, setOrder }) => {
           <option value="votes">votes</option>
         </select>
       </label>
-      <label>
-        <input type="checkbox" onChange={handleOrderChange} />
+      <label className="form--checkBoxLabel">
+        <input
+          className="form--checkBox"
+          type="checkbox"
+          onChange={handleOrderChange}
+        />
         asc. order
       </label>
     </form>
