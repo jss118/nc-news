@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { fetchSingleArticle } from "../utils/api";
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { updateVote } from "../utils/api";
 import Comments from "./Comments";
 
